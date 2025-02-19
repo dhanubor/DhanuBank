@@ -15,22 +15,31 @@ loginBtn.addEventListener('click', function () {
 const depositAmount = document.getElementById('depositBtn');
 depositAmount.addEventListener('click', function () {
     const depositeMoney = document.getElementById('deposit').value;
-     const depositenumber = parseFloat(depositeMoney)
-   
-   const carentDeposite = document.getElementById('carentdeposite').innerText;
-   const carrentNumber = parseFloat(carentDeposite) 
+    const depositenumber = parseFloat(depositeMoney)
 
-   const totalDeposite = depositenumber + carrentNumber;
+    //    const carentDeposite = document.getElementById('carentdeposite').innerText;
+    //    const carrentNumber = parseFloat(carentDeposite) 
 
-   document.getElementById('carentdeposite').innerText = totalDeposite
-   depositeMoney = document.getElementById('deposit').value = "";  
-   
-   const savingAmount = document.getElementById('savingManey').innerText;
-   const savingNumber = parseFloat(savingAmount);
-    
-   const totalBalance = savingAmount + depositenumber;
+    //    const totalDeposite = depositenumber + carrentNumber;
 
-   document.getElementById('savingManey').innerText = totalBalance;
-   
+    //    document.getElementById('carentdeposite').innerText = totalDeposite
+
+
+
+    updateSpanTag("carentdeposite", depositenumber)
+    updateSpanTag("currentBalance", depositenumber)
+
+    depositeMoney = document.getElementById('deposit').value = "";
+
+
+
 
 })
+
+function updateSpanTag(id, depositenumber) {
+    const currentBalance = document.getElementById(id).innerText;
+    const currentBalanceNumber = parseFloat(currentBalance);
+    const totalBalance = depositenumber + currentBalanceNumber;
+
+    document.getElementById(id).innerText = totalBalance;
+}
